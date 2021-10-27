@@ -23,18 +23,18 @@ function onFormInput(event) {
 function onFormSubmit(event) {
     event.preventDefault();
     event.target.reset();
-    console.log('STORAGE_KEY', JSON.parse(localStorage.getItem(STORAGE_KEY)));
+    console.log('feedback-form-state', JSON.parse(localStorage.getItem(STORAGE_KEY)));
     localStorage.removeItem(STORAGE_KEY);
 };
 
 function populateTextarea() {
     const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-    if (savedMessage.message) {
+    if (savedMessage && savedMessage.message) {
     refs.textarea.value = savedMessage.message;
-  }
+    };
     
-    if (savedMessage.email) {
+    if (savedMessage && savedMessage.email) {
     refs.mail.value = savedMessage.email;
-  }
-}
+    };
+};
